@@ -789,18 +789,6 @@
         </div>
         <div class="field"><label for="mphone">Phone / Mobile</label><input type="tel" id="mphone" placeholder="+971 50 123 4567" /></div>
         <div class="field"><label for="memail">Email</label><input type="email" id="memail" placeholder="you@example.com" /></div>
-        <div class="field">
-          <label for="mservice">Service Interested In</label>
-          <select id="mservice">
-            <option value="">Select a service...</option>
-            <option>Full-Time Live-In Maid</option>
-            <option>Recruitment / Direct Hire</option>
-            <option>Visa Services - Expat Sponsor</option>
-            <option>Visa Services - Emirati/GCC Sponsor</option>
-            <option>On-Demand Services</option>
-            <option>Professional Caregiver</option>
-          </select>
-        </div>
         <button class="modal-submit" id="modalSubmitBtn" onclick="handleSubmit()">
           <span id="modalBtnText">Send Request</span>
           <span class="spinner" id="modalSpinner"></span>
@@ -843,7 +831,6 @@
     const lname = document.getElementById('mlname').value.trim();
     const phone = document.getElementById('mphone').value.trim().replace(/[\s\-\(\)]/g,'');
     const email = document.getElementById('memail').value.trim();
-    const service = document.getElementById('mservice').value;
     const err = document.getElementById('modalErrorMsg');
     err.style.display = 'none';
     if (!fname) { err.textContent = 'Please enter your first name.'; err.style.display='block'; return; }
@@ -862,7 +849,7 @@
         body: JSON.stringify({
           from_number: FROM_NUMBER, to_number: phone,
           override_agent_id: AGENT_ID,
-          retell_llm_dynamic_variables: { customer_name: `${fname} ${lname}`.trim(), customer_email: email, service_interest: service }
+          retell_llm_dynamic_variables: { customer_name: `${fname} ${lname}`.trim(), customer_email: email }
         })
       });
       if (!res.ok) { const e = await res.json().catch(()=>{}); throw new Error(e?.message || `Error ${res.status}`); }

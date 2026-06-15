@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find a Maid - Nanny - Housekeeper | Get Maid & Nanny Visa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #1a3b6e;
+      --blue-mid: #1e4d8c;
+      --teal: #0099cc;
+      --teal-light: #e8f6fc;
+      --white: #ffffff;
+      --offwhite: #f7f9fc;
+      --light: #eef2f7;
+      --text: #1a1a2e;
+      --muted: #5a6a7e;
+      --border: #dde3ec;
+      --green: #27ae60;
+    }
+    html, body { background: var(--white); color: var(--text); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+
+    /* ── TOP BAR ── */
+    .top-bar {
+      background: var(--blue);
+      padding: 6px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .top-bar span { font-size: 12px; color: rgba(255,255,255,0.75); }
+    .top-bar-right { display: flex; align-items: center; gap: 20px; }
+    .top-bar a { font-size: 12px; color: rgba(255,255,255,0.75); text-decoration: none; display: flex; align-items: center; gap: 5px; }
+    .top-bar a:hover { color: white; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: white;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+      padding: 0 40px; height: 68px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .nav-logo { margin-right: 40px; }
+    .nav-logo img { height: 44px; }
+    .nav-links { display: flex; gap: 0; list-style: none; flex: 1; }
+    .nav-links a {
+      display: block; padding: 0 14px; height: 68px; line-height: 68px;
+      font-size: 13px; font-weight: 500; color: var(--text);
+      text-decoration: none; white-space: nowrap; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-phone {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--blue); color: white;
+      padding: 10px 18px; font-size: 13px; font-weight: 600;
+      text-decoration: none; white-space: nowrap;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 60%, #1a5a8a 100%);
+      padding: 70px 40px;
+      display: grid; grid-template-columns: 1fr 420px;
+      gap: 60px; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; right: -80px; top: -80px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+    .hero::after {
+      content: '';
+      position: absolute; right: 320px; bottom: -60px;
+      width: 250px; height: 250px; border-radius: 50%;
+      background: rgba(0,153,204,0.15);
+    }
+    .hero-left { position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.9); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 5px 12px; margin-bottom: 20px;
+    }
+    .hero-badge::before { content: '★'; color: #f5c518; }
+    .hero h1 {
+      font-size: clamp(30px, 4vw, 48px); font-weight: 800; color: white;
+      line-height: 1.15; margin-bottom: 16px;
+    }
+    .hero h1 span { color: #5bc8e8; }
+    .hero-desc { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 32px; max-width: 480px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+    .btn-primary {
+      background: var(--teal); color: white;
+      padding: 13px 28px; font-size: 13px; font-weight: 700;
+      border: none; cursor: pointer; transition: background 0.2s;
+      text-decoration: none; display: inline-block;
+    }
+    .btn-primary:hover { background: #007aaa; }
+    .btn-whatsapp {
+      background: #25d366; color: white;
+      padding: 13px 28px; font-size: 13px; font-weight: 700;
+      border: none; cursor: pointer; transition: background 0.2s;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-whatsapp:hover { background: #1ea952; }
+    .hero-stats { display: flex; gap: 32px; }
+    .hero-stat-num { font-size: 28px; font-weight: 800; color: white; line-height: 1; }
+    .hero-stat-label { font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 3px; }
+
+    /* hero form */
+    .hero-form-box {
+      background: white; position: relative; z-index: 1;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+    }
+    .hero-form-top { background: var(--teal); padding: 20px 24px; }
+    .hero-form-top p { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 3px; }
+    .hero-form-top h3 { font-size: 20px; font-weight: 800; color: white; }
+    .hero-form-body { padding: 24px; }
+    .hero-form-body > p { font-size: 13px; color: var(--muted); margin-bottom: 18px; line-height: 1.6; }
+    .field { margin-bottom: 12px; }
+    .field label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+    .field input, .field select {
+      width: 100%; border: 1px solid var(--border); background: var(--offwhite);
+      color: var(--text); font-family: 'Inter', sans-serif; font-size: 13px;
+      padding: 11px 13px; outline: none; border-radius: 0;
+      transition: border-color 0.2s;
+    }
+    .field input:focus, .field select:focus { border-color: var(--teal); background: white; }
+    .field input::placeholder { color: #bbb; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .submit-btn {
+      width: 100%; margin-top: 6px; padding: 14px;
+      background: var(--blue); color: white; border: none;
+      font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      cursor: pointer; transition: background 0.2s;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .submit-btn:hover { background: var(--blue-mid); }
+    .submit-btn:disabled { background: rgba(26,59,110,0.45); cursor: not-allowed; }
+    .spinner { width: 13px; height: 13px; border: 2px solid rgba(255,255,255,0.35); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; display: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .error-msg { display: none; margin-top: 10px; padding: 9px 12px; background: rgba(220,53,69,0.07); border: 1px solid rgba(220,53,69,0.2); font-size: 12px; color: #c0392b; line-height: 1.5; }
+    .call-note { margin-top: 12px; font-size: 11px; color: var(--muted); display: flex; align-items: flex-start; gap: 6px; line-height: 1.5; }
+    .call-note svg { color: var(--teal); flex-shrink: 0; margin-top: 1px; }
+    .success-view { display: none; padding: 32px 24px; text-align: center; }
+    .success-icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(0,153,204,0.1); border: 2px solid var(--teal); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+    .success-icon svg { color: var(--teal); }
+    .success-view h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+    .success-view p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+    /* ── NATIONALITY SECTION ── */
+    .nationality-section {
+      background: var(--offwhite);
+      padding: 48px 40px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .nationality-section h3 { font-size: 20px; font-weight: 700; color: var(--blue); margin-bottom: 28px; }
+    .nationality-cards { display: flex; justify-content: center; gap: 20px; }
+    .nat-card {
+      background: white; border: 2px solid var(--border);
+      padding: 24px 40px; cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      text-decoration: none; color: var(--text);
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+    .nat-card:hover { border-color: var(--teal); box-shadow: 0 4px 20px rgba(0,153,204,0.15); }
+    .nat-card img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+    .nat-card span { font-size: 14px; font-weight: 700; color: var(--blue); }
+
+    /* ── SERVICES SECTION ── */
+    .services-section { padding: 64px 40px; background: white; }
+    .section-header { text-align: center; margin-bottom: 40px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+    .section-title { font-size: 28px; font-weight: 800; color: var(--blue); }
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .service-card {
+      border: 1px solid var(--border); overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .service-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.1); transform: translateY(-2px); }
+    .service-card-img { width: 100%; height: 160px; object-fit: cover; display: block; background: var(--light); }
+    .service-card-body { padding: 18px; }
+    .service-card-title { font-size: 15px; font-weight: 700; color: var(--blue); margin-bottom: 8px; }
+    .service-card-desc { font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 14px; }
+    .service-card-price { font-size: 12px; font-weight: 600; color: var(--teal); margin-bottom: 14px; }
+    .service-link { font-size: 12px; font-weight: 700; color: var(--blue); text-decoration: none; border-bottom: 2px solid var(--teal); padding-bottom: 1px; }
+    .service-link:hover { color: var(--teal); }
+
+    /* ── WHY CHOOSE US ── */
+    .why-section { background: var(--blue); padding: 64px 40px; }
+    .why-section .section-title { color: white; }
+    .why-section .section-eyebrow { color: #5bc8e8; }
+    .why-desc { text-align: center; font-size: 14px; color: rgba(255,255,255,0.7); max-width: 720px; margin: 0 auto 48px; line-height: 1.75; }
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .why-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); padding: 28px 20px; text-align: center; }
+    .why-card img { width: 48px; height: 48px; object-fit: contain; margin: 0 auto 14px; display: block; }
+    .why-card-title { font-size: 14px; font-weight: 700; color: white; margin-bottom: 8px; }
+    .why-card-desc { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+    /* ── STATS BAR ── */
+    .stats-bar { background: var(--teal); display: flex; justify-content: center; }
+    .stat-item { padding: 28px 56px; text-align: center; border-right: 1px solid rgba(255,255,255,0.2); flex: 1; max-width: 240px; }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-size: 32px; font-weight: 800; color: white; line-height: 1; }
+    .stat-lbl { font-size: 11px; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--blue); padding: 48px 40px 0; }
+    .footer-grid { display: grid; grid-template-columns: 220px repeat(3,1fr) 200px; gap: 32px; margin-bottom: 40px; }
+    .footer-logo img { height: 50px; filter: brightness(0) invert(1); margin-bottom: 16px; display: block; }
+    .footer-logo p { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; color: white; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.15); }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 7px; }
+    .footer-col ul li a { font-size: 12px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: white; }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 12px; font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+    .footer-contact-item a { color: rgba(255,255,255,0.7); text-decoration: none; }
+    .footer-social { display: flex; gap: 10px; margin-top: 16px; }
+    .footer-social a { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+    .footer-social a:hover { background: rgba(255,255,255,0.25); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding: 18px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom span { font-size: 12px; color: rgba(255,255,255,0.45); }
+    .footer-bottom-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-bottom-links a { font-size: 12px; color: rgba(255,255,255,0.45); text-decoration: none; }
+    .footer-bottom-links a:hover { color: rgba(255,255,255,0.8); }
+
+    /* ── FLOATING BUTTONS ── */
+    .float-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
+      display: flex; justify-content: center; gap: 0;
+      background: white; border-top: 1px solid var(--border);
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+    }
+    .float-bar a {
+      flex: 1; max-width: 180px; padding: 12px 16px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      font-size: 12px; font-weight: 700; text-decoration: none;
+      border-right: 1px solid var(--border); transition: background 0.2s;
+    }
+    .float-bar a:last-child { border-right: none; }
+    .float-bar a.whatsapp { color: #25d366; }
+    .float-bar a.whatsapp:hover { background: #f0fff5; }
+    .float-bar a.call { color: var(--blue); }
+    .float-bar a.call:hover { background: var(--light); }
+    .float-bar a.location { color: var(--teal); }
+    .float-bar a.location:hover { background: var(--teal-light); }
+
+    /* separate floating call icon */
+    .call-float {
+      position: fixed; bottom: 80px; right: 24px; z-index: 400;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--teal);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,153,204,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .call-float:hover { transform: scale(1.08); box-shadow: 0 6px 20px rgba(0,153,204,0.55); }
+    .call-float svg { color: white; }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 500;
+      background: rgba(0,0,0,0.55); backdrop-filter: blur(3px);
+      align-items: flex-end; justify-content: flex-end;
+      padding: 0 24px 90px 0;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-popup {
+      width: 380px; background: white;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.22);
+      animation: slideUp 0.25s ease;
+      max-height: 90vh; overflow-y: auto;
+    }
+    @keyframes slideUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    .modal-form-top { background: var(--teal); padding: 18px 22px; display: flex; align-items: flex-start; justify-content: space-between; }
+    .modal-form-top-text p { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 3px; }
+    .modal-form-top-text h3 { font-size: 18px; font-weight: 800; color: white; }
+    .modal-close { background: none; border: none; color: rgba(255,255,255,0.7); cursor: pointer; font-size: 20px; line-height: 1; padding: 0; margin-top: 2px; transition: color 0.2s; }
+    .modal-close:hover { color: white; }
+    .modal-form-body { padding: 22px; }
+    .modal-form-body > p { font-size: 13px; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2,1fr); }
+      .why-grid { grid-template-columns: repeat(2,1fr); }
+      .footer-grid { grid-template-columns: repeat(2,1fr); }
+      .hero { grid-template-columns: 1fr; }
+      .hero-form-box { max-width: 480px; }
+    }
+    @media (max-width: 768px) {
+      .top-bar, nav { padding: 0 16px; }
+      .top-bar { display: none; }
+      .nav-links { display: none; }
+      nav { height: 60px; }
+      .hero { padding: 40px 16px; }
+      .services-section, .why-section, footer { padding: 40px 16px; }
+      .nationality-section { padding: 32px 16px; }
+      .nationality-cards { flex-direction: column; align-items: center; }
+      .services-grid, .why-grid { grid-template-columns: 1fr; }
+      .stats-bar { flex-wrap: wrap; }
+      .stat-item { max-width: 50%; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <span>Business Hours: 8:00 am – 8:00 pm</span>
+  <div class="top-bar-right">
+    <a href="tel:+97147060100">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.08 1.18 2 2 0 012.07 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      +971 4 706 0100
+    </a>
+    <a href="mailto:info@housekeepingco.com">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      info@housekeepingco.com
+    </a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="https://www.housekeepingco.com" class="nav-logo">
+    <img src="https://www.housekeepingco.com/images/v2/logo_with_servu.png" alt="Housekeeping Co" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://www.housekeepingco.com">Home</a></li>
+    <li><a href="https://www.housekeepingco.com/pcandidate/candidate-profile">Candidate Profiles</a></li>
+    <li><a href="https://www.housekeepingco.com/hire-maid">Recruitment</a></li>
+    <li><a href="https://www.housekeepingco.com/full-time-live-in">Full-Time Live-In</a></li>
+    <li><a href="#">Visa Services</a></li>
+    <li><a href="https://www.housekeepingco.com/on-demand-services">On-Demand</a></li>
+    <li><a href="https://www.housekeepingco.com/company">About Us</a></li>
+    <li><a href="https://www.housekeepingco.com/contact-us">Contact Us</a></li>
+  </ul>
+  <a href="tel:+97147060100" class="nav-phone">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.08 1.18 2 2 0 012.07 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    +971 4 706 0100
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">MOHRE Award Winner · Category 1 Company</div>
+    <h1>Maid or Nanny<br /><span>Hire or Get Visa</span></h1>
+    <p class="hero-desc">Housekeeping Co. is Your One Stop Center to Find & Hire Full Time Live-In Maids, Nannies and Caregivers in Dubai, UAE.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="openModal()">Request a Callback</button>
+      <a href="https://api.whatsapp.com/send?phone=97147060100&text=Hello+Housekeeping+Co" class="btn-whatsapp" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">21,000+</div>
+        <div class="hero-stat-label">Happy Customers</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">Since 2011</div>
+        <div class="hero-stat-label">Market Leader</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">Cat. 1</div>
+        <div class="hero-stat-label">MOHRE Rated</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO FORM (inline) -->
+  <div class="hero-form-box">
+    <div class="hero-form-top">
+      <p>AI Voice Agent — Instant Callback</p>
+      <h3>Request a Callback</h3>
+    </div>
+    <div class="hero-form-body">
+      <div id="heroFormView">
+        <p>Fill in your details and our AI agent will call you instantly to discuss your requirements.</p>
+        <div class="field-row">
+          <div class="field">
+            <label for="hfname">First Name</label>
+            <input type="text" id="hfname" placeholder="Ahmed" />
+          </div>
+          <div class="field">
+            <label for="hlname">Last Name</label>
+            <input type="text" id="hlname" placeholder="Al Ali" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="hphone">Phone / Mobile</label>
+          <input type="tel" id="hphone" placeholder="+971 50 123 4567" />
+        </div>
+        <div class="field">
+          <label for="hemail">Email</label>
+          <input type="email" id="hemail" placeholder="you@example.com" />
+        </div>
+        <div class="field">
+          <label for="hservice">Service Interested In</label>
+          <select id="hservice">
+            <option value="">Select a service...</option>
+            <option>Full-Time Live-In Maid</option>
+            <option>Recruitment / Direct Hire</option>
+            <option>Visa Services - Expat Sponsor</option>
+            <option>Visa Services - Emirati/GCC Sponsor</option>
+            <option>On-Demand Services</option>
+            <option>Professional Caregiver</option>
+          </select>
+        </div>
+        <button class="submit-btn" id="heroSubmitBtn" onclick="handleHeroSubmit()">
+          <span id="heroBtnText">Send Request</span>
+          <span class="spinner" id="heroSpinner"></span>
+        </button>
+        <div class="error-msg" id="heroErrorMsg"></div>
+        <div class="call-note">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.08 1.18 2 2 0 012.07 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          You will receive a call within seconds of submitting.
+        </div>
+      </div>
+      <div class="success-view" id="heroSuccessView">
+        <div class="success-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Call on the way, <span id="heroSuccessName" style="color:var(--teal)"></span>!</h3>
+        <p>Our AI agent is calling you now. Please keep your phone ready.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NATIONALITY SECTION -->
+<div class="nationality-section">
+  <h3>Please Choose Your Nationality Category</h3>
+  <div class="nationality-cards">
+    <a href="https://www.housekeepingco.com/services/emirati" class="nat-card">
+      <img src="https://www.housekeepingco.com/images/v2/landingpage/emirati.webp" alt="Emirati/GCC" />
+      <span>Emirati / GCC</span>
+    </a>
+    <a href="https://www.housekeepingco.com/services/expat" class="nat-card">
+      <img src="https://www.housekeepingco.com/images/v2/landingpage/expat_1.webp" alt="Expat" />
+      <span>Expat</span>
+    </a>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-section">
+  <div class="section-header">
+    <div class="section-eyebrow">Our Packages</div>
+    <div class="section-title">Domestic Worker Packages</div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <img class="service-card-img" src="https://www.housekeepingco.com/images/v2/landingpage/fulltimlivein_blue.png" alt="Full-Time Live-In" />
+      <div class="service-card-body">
+        <div class="service-card-title">Full-Time Live-In</div>
+        <div class="service-card-desc">Flexible contract. Fully sponsored worker with Visa & Emirates ID. No hassle — free replacement.</div>
+        <div class="service-card-price">Starting from AED 2,500</div>
+        <a href="https://www.housekeepingco.com/full-time-live-in" class="service-link">View More</a>
+      </div>
+    </div>
+    <div class="service-card">
+      <img class="service-card-img" src="https://www.housekeepingco.com/images/v2/landingpage/recruitment_blue.png" alt="Recruitment" />
+      <div class="service-card-body">
+        <div class="service-card-title">Recruitment</div>
+        <div class="service-card-desc">Hire directly from Philippines, Ethiopia, Myanmar, Kenya & more. Under family/direct sponsorship.</div>
+        <div class="service-card-price">Salary from AED 1,200</div>
+        <a href="https://www.housekeepingco.com/hire-maid" class="service-link">View More</a>
+      </div>
+    </div>
+    <div class="service-card">
+      <img class="service-card-img" src="https://www.housekeepingco.com/images/v2/landingpage/on-demand-services_blue.png" alt="On-Demand" />
+      <div class="service-card-body">
+        <div class="service-card-title">On-Demand Services</div>
+        <div class="service-card-desc">Trained professionals. Cleaning, childcare, caregiving. No long-term commitment needed.</div>
+        <div class="service-card-price">Instant booking available</div>
+        <a href="https://www.housekeepingco.com/on-demand-services" class="service-link">View More</a>
+      </div>
+    </div>
+    <div class="service-card">
+      <img class="service-card-img" src="https://www.housekeepingco.com/images/v2/landingpage/caregiver.png" alt="Caregivers" />
+      <div class="service-card-body">
+        <div class="service-card-title">Professional Caregivers</div>
+        <div class="service-card-desc">Certified & experienced. Maternity & newborn, elderly care, special needs care.</div>
+        <div class="service-card-price">Starting from AED 4,500</div>
+        <a href="https://www.housekeepingco.com/qualified-caregiver" class="service-link">View More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">21,000+</div><div class="stat-lbl">Customers Served</div></div>
+  <div class="stat-item"><div class="stat-num">2011</div><div class="stat-lbl">Established</div></div>
+  <div class="stat-item"><div class="stat-num">Cat. 1</div><div class="stat-lbl">MOHRE Rated</div></div>
+  <div class="stat-item"><div class="stat-num">Award</div><div class="stat-lbl">Emirates Labour Market</div></div>
+</div>
+
+<!-- WHY US -->
+<section class="why-section">
+  <div class="section-header">
+    <div class="section-eyebrow">Why Choose Us</div>
+    <div class="section-title">Dubai's Leading Domestic Worker Agency</div>
+  </div>
+  <p class="why-desc">Since 2011, we have excelled as a leading provider of domestic worker services, serving over 21,000 customers. Recognized as a Category 1 company by MOHRE and winner of the Emirates Labour Market Award.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <img src="https://www.housekeepingco.com/images/v2/landingpage/customer.webp" alt="Priority Service" />
+      <div class="why-card-title">Priority Service</div>
+      <div class="why-card-desc">Dedicated account managers and priority handling for all your inquiries.</div>
+    </div>
+    <div class="why-card">
+      <img src="https://www.housekeepingco.com/images/v2/landingpage/headphone.webp" alt="Helpdesk" />
+      <div class="why-card-title">Helpdesk</div>
+      <div class="why-card-desc">Quick and efficient resolutions to any concern, available 8am–8pm daily.</div>
+    </div>
+    <div class="why-card">
+      <img src="https://www.housekeepingco.com/images/v2/landingpage/hr.webp" alt="HR Services" />
+      <div class="why-card-title">HR Services</div>
+      <div class="why-card-desc">Full HR management — contracts, payroll, visa renewals, replacements.</div>
+    </div>
+    <div class="why-card">
+      <img src="https://www.housekeepingco.com/images/v2/landingpage/trainings.webp" alt="Training" />
+      <div class="why-card-title">Training</div>
+      <div class="why-card-desc">UK Level 3 standards training at Dubai's largest residential training centre.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-logo">
+      <img src="https://www.housekeepingco.com/images/v2/logo.png" alt="Housekeeping Co" />
+      <p>Dubai's leading domestic worker services company. MOHRE Category 1. Emirates Labour Market Award Winner.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/housekeepingcompany/" title="Facebook">Fb</a>
+        <a href="https://www.tiktok.com/@housekeepingco" title="TikTok">Tk</a>
+        <a href="https://www.youtube.com/housekeepingco" title="YouTube">Yt</a>
+        <a href="https://www.linkedin.com/company/housekeeping-co/" title="LinkedIn">Li</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="https://www.housekeepingco.com/full-time-live-in">Full-Time Live-In</a></li>
+        <li><a href="https://www.housekeepingco.com/hire-maid">Recruitment</a></li>
+        <li><a href="https://www.housekeepingco.com/on-demand-services">On-Demand Services</a></li>
+        <li><a href="https://www.housekeepingco.com/qualified-caregiver">Professional Caregivers</a></li>
+        <li><a href="https://www.housekeepingco.com/services/expat">Expat Visa Services</a></li>
+        <li><a href="https://www.housekeepingco.com/services/emirati">Emirati/GCC Visa Services</a></li>
+        <li><a href="https://www.housekeepingco.com/premium-visa-package">Premium Visa Package</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="https://www.housekeepingco.com/company">About Us</a></li>
+        <li><a href="https://www.housekeepingco.com/pcandidate/candidate-profile">Candidate Profiles</a></li>
+        <li><a href="https://www.housekeepingco.com/articles">Articles</a></li>
+        <li><a href="https://www.housekeepingco.com/award">MOHRE Award</a></li>
+        <li><a href="https://www.housekeepingco.com/jobs">Jobs</a></li>
+        <li><a href="https://www.housekeepingco.com/faq">FAQ</a></li>
+        <li><a href="https://www.housekeepingco.com/contact-us">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="https://www.housekeepingco.com/terms-conditions">Terms & Conditions</a></li>
+        <li><a href="https://www.housekeepingco.com/privacy-policy">Privacy Policy</a></li>
+        <li><a href="https://www.housekeepingco.com/legal-notice">Legal Notice</a></li>
+        <li><a href="https://www.housekeepingco.com/refund-cancellation-policy">Refund Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="footer-contact-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.08 1.18 2 2 0 012.07 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <a href="tel:+97147060100">+971 4 706 0100</a>
+      </div>
+      <div class="footer-contact-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:info@housekeepingco.com">info@housekeepingco.com</a>
+      </div>
+      <div class="footer-contact-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Sheikh Zayed Road, Dubai, UAE
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Housekeeping Co. All Rights Reserved.</span>
+    <div class="footer-bottom-links">
+      <a href="https://www.housekeepingco.com/privacy-policy">Privacy Policy</a>
+      <a href="https://www.housekeepingco.com/terms-conditions">Terms & Conditions</a>
+      <a href="https://www.housekeepingco.com/contact-us">Contact Us</a>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOAT BAR (bottom) -->
+<div class="float-bar">
+  <a href="https://api.whatsapp.com/send?phone=97147060100" class="whatsapp" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp Us
+  </a>
+  <a href="tel:+97147060100" class="call">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.08 1.18 2 2 0 012.07 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    Call Us
+  </a>
+  <a href="https://www.google.com/maps/place/Housekeeping+Domestics+Workers+Services+LLC" class="location" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    Location
+  </a>
+</div>
+
+<!-- SEPARATE CALL FLOAT ICON -->
+<div class="call-float" onclick="openModal()" title="Request AI callback">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.08 1.18 2 2 0 012.07 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal-popup" id="modalPopup">
+    <div class="modal-form-top">
+      <div class="modal-form-top-text">
+        <p>AI Voice Agent — Instant Callback</p>
+        <h3>Request a Callback</h3>
+      </div>
+      <button class="modal-close" onclick="closeModal()">&#x2715;</button>
+    </div>
+    <div class="modal-form-body">
+      <div id="modalFormView">
+        <p>Fill in your details and our AI agent will call you instantly.</p>
+        <div class="field-row">
+          <div class="field"><label for="mfname">First Name</label><input type="text" id="mfname" placeholder="Ahmed" /></div>
+          <div class="field"><label for="mlname">Last Name</label><input type="text" id="mlname" placeholder="Al Ali" /></div>
+        </div>
+        <div class="field"><label for="mphone">Phone / Mobile</label><input type="tel" id="mphone" placeholder="+971 50 123 4567" /></div>
+        <div class="field"><label for="memail">Email</label><input type="email" id="memail" placeholder="you@example.com" /></div>
+        <div class="field">
+          <label for="mservice">Service Interested In</label>
+          <select id="mservice">
+            <option value="">Select a service...</option>
+            <option>Full-Time Live-In Maid</option>
+            <option>Recruitment / Direct Hire</option>
+            <option>Visa Services - Expat Sponsor</option>
+            <option>Visa Services - Emirati/GCC Sponsor</option>
+            <option>On-Demand Services</option>
+            <option>Professional Caregiver</option>
+          </select>
+        </div>
+        <button class="submit-btn" id="modalSubmitBtn" onclick="handleModalSubmit()">
+          <span id="modalBtnText">Send Request</span>
+          <span class="spinner" id="modalSpinner"></span>
+        </button>
+        <div class="error-msg" id="modalErrorMsg"></div>
+        <div class="call-note">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.08 1.18 2 2 0 012.07 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          You will receive a call within seconds of submitting.
+        </div>
+      </div>
+      <div class="success-view" id="modalSuccessView">
+        <div class="success-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Call on the way, <span id="modalSuccessName" style="color:var(--teal)"></span>!</h3>
+        <p>Our AI agent is calling you now. Please keep your phone ready.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── CONFIG ──
+  const RETELL_API_KEY = 'key_0272fa50429f8cf7a7a543fb24ad';
+  const FROM_NUMBER    = '+16203748863';
+  const AGENT_ID       = 'agent_d6a9b8bc02f564a1f2834e1486';
+  // ────────────
+
+  function openModal() { document.getElementById('modalOverlay').classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); document.body.style.overflow = ''; }
+  function handleOverlayClick(e) { if (e.target === document.getElementById('modalOverlay')) closeModal(); }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  function formatPhone(raw) { return raw.replace(/[\s\-\(\)]/g, ''); }
+
+  async function triggerCall(phone, name, email, service, btnId, textId, spinnerId, errorId, successViewId, successNameId) {
+    document.getElementById(errorId).style.display = 'none';
+    const btn = document.getElementById(btnId);
+    btn.disabled = true;
+    document.getElementById(textId).textContent = 'Connecting…';
+    document.getElementById(spinnerId).style.display = 'inline-block';
+    try {
+      const res = await fetch('https://api.retellai.com/v2/create-phone-call', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${RETELL_API_KEY}` },
+        body: JSON.stringify({
+          from_number: FROM_NUMBER,
+          to_number: phone,
+          override_agent_id: AGENT_ID,
+          retell_llm_dynamic_variables: { customer_name: name, customer_email: email, service_interest: service }
+        })
+      });
+      if (!res.ok) { const err = await res.json().catch(() => ({})); throw new Error(err.message || `Error ${res.status}`); }
+      document.getElementById(successNameId).textContent = name.split(' ')[0];
+      document.getElementById(btnId).closest('.hero-form-body, .modal-form-body').querySelector('[id$="FormView"], [id$="formView"]').style.display = 'none';
+      document.getElementById(successViewId).style.display = 'block';
+    } catch (e) {
+      btn.disabled = false;
+      document.getElementById(textId).textContent = 'Send Request';
+      document.getElementById(spinnerId).style.display = 'none';
+      const el = document.getElementById(errorId);
+      el.textContent = 'Something went wrong: ' + e.message;
+      el.style.display = 'block';
+    }
+  }
+
+  function handleHeroSubmit() {
+    const fname = document.getElementById('hfname').value.trim();
+    const lname = document.getElementById('hlname').value.trim();
+    const phone = formatPhone(document.getElementById('hphone').value.trim());
+    const email = document.getElementById('hemail').value.trim();
+    const service = document.getElementById('hservice').value;
+    const el = document.getElementById('heroErrorMsg');
+    if (!fname) { el.textContent = 'Please enter your first name.'; el.style.display='block'; return; }
+    if (!phone) { el.textContent = 'Please enter your phone number.'; el.style.display='block'; return; }
+    if (!email || !email.includes('@')) { el.textContent = 'Please enter a valid email.'; el.style.display='block'; return; }
+    document.getElementById('heroFormView').style.display = 'none';
+    document.getElementById('heroSuccessName').textContent = fname;
+    document.getElementById('heroSuccessView').style.display = 'block';
+    triggerCallDirect(phone, `${fname} ${lname}`.trim(), email, service);
+  }
+
+  function handleModalSubmit() {
+    const fname = document.getElementById('mfname').value.trim();
+    const lname = document.getElementById('mlname').value.trim();
+    const phone = formatPhone(document.getElementById('mphone').value.trim());
+    const email = document.getElementById('memail').value.trim();
+    const service = document.getElementById('mservice').value;
+    const el = document.getElementById('modalErrorMsg');
+    if (!fname) { el.textContent = 'Please enter your first name.'; el.style.display='block'; return; }
+    if (!phone) { el.textContent = 'Please enter your phone number.'; el.style.display='block'; return; }
+    if (!email || !email.includes('@')) { el.textContent = 'Please enter a valid email.'; el.style.display='block'; return; }
+    document.getElementById('modalFormView').style.display = 'none';
+    document.getElementById('modalSuccessName').textContent = fname;
+    document.getElementById('modalSuccessView').style.display = 'block';
+    triggerCallDirect(phone, `${fname} ${lname}`.trim(), email, service);
+  }
+
+  async function triggerCallDirect(phone, name, email, service) {
+    try {
+      await fetch('https://api.retellai.com/v2/create-phone-call', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${RETELL_API_KEY}` },
+        body: JSON.stringify({
+          from_number: FROM_NUMBER,
+          to_number: phone,
+          override_agent_id: AGENT_ID,
+          retell_llm_dynamic_variables: { customer_name: name, customer_email: email, service_interest: service }
+        })
+      });
+    } catch(e) { console.error('Call trigger failed:', e); }
+  }
+</script>
+</body>
+</html>
